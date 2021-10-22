@@ -1,5 +1,5 @@
 <template>
-    <div class="row">
+    <div class="row" style="height: 580px">
       <div class="col-12">
         <card :title="table1.title" :subTitle="table1.subTitle">
           <div slot="raw-content" class="table-responsive">
@@ -8,9 +8,6 @@
           </div>
         </card>
       </div>
-
-      <PButton></PButton>
-
 <!--       <div class="col-12">
         <card class="card-plain">
           <div class="table-full-width table-responsive">
@@ -22,10 +19,18 @@
         </card>
       </div> -->
 
+      <div class="text-center">
+        <p-button type="info"
+                  round
+                  @click.native.prevent="addRequest">
+          New Request
+        </p-button>
+      </div>      
+
     </div>
 </template>
 <script>
-import { PaperTable, PButton } from "@/components";
+import { PaperTable, } from "@/components";
 const tableColumns = ["Id", "Address", "API", "Result"];
 const tableData = [
   {
@@ -51,7 +56,11 @@ const tableData = [
 export default {
   components: {
     PaperTable,
-    PButton,
+  },
+  methods: {
+    addRequest(event) {
+      console.log("aaa")
+    }
   },
   data() {
     return {
@@ -68,7 +77,7 @@ export default {
       //   data: [...tableData]
       // }
     };
-  }
+  },
 };
 </script>
 <style>

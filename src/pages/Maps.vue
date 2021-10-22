@@ -1,84 +1,48 @@
 <template>
-    <card class="card-map" title="Google Maps">
-      <div class="map">
-        <div id="map"></div>
+  <div style="height: 580px;display: block;"> 
+    <div style="width:500px; margin-left:40px; height:auto; float:left; display:block">
+      <card class="architecture-graph" title="Architecture Graph" style="width: 100%; height: auto;max-width: 100%; display: block;">
+        <div class="computing-img">
+            <img style="width: 100%; height: auto;max-width: 100%; display: block;" src="@/assets/img/architecture.png" alt="">
+        </div>
+      </card>
+    </div>
+
+    <div style="width:500px; margin-left:40px;height:auto; float:left; display:block">
+      <card class="computing-graph" title="Computing Graph" style="width: 100%; height: auto;max-width: 100%; display: block;">
+      <div class="computing-img">
+          <img style="width: 100%; height: auto;max-width: 100%; display: block;" src="@/assets/img/computing.png" alt="">
       </div>
     </card>
+    </div>
+
+    <div style="width:100%; margin-left:40px;height:auto; float:left; display:block">
+      <card class="architecture-graph"  style="width: 100%; height: auto;max-width: 100%; display: block;">
+        <div class="text-center">
+          <p-button type="info"
+                    round
+                    @click.native.prevent="addRequest">
+            New Request
+          </p-button>
+        </div>          
+      </card>      
+    </div>
+
+
+
+     
+
+  </div>
 </template>
 <script>
 export default {
-  mounted() {
-    var myLatlng = new window.google.maps.LatLng(40.748817, -73.985428);
-    var mapOptions = {
-      zoom: 13,
-      center: myLatlng,
-      scrollwheel: false, // we disable de scroll over the map, it is a really annoing when you scroll through page
-      styles: [
-        {
-          featureType: "water",
-          stylers: [{ saturation: 43 }, { lightness: -11 }, { hue: "#0088ff" }]
-        },
-        {
-          featureType: "road",
-          elementType: "geometry.fill",
-          stylers: [{ hue: "#ff0000" }, { saturation: -100 }, { lightness: 99 }]
-        },
-        {
-          featureType: "road",
-          elementType: "geometry.stroke",
-          stylers: [{ color: "#808080" }, { lightness: 54 }]
-        },
-        {
-          featureType: "landscape.man_made",
-          elementType: "geometry.fill",
-          stylers: [{ color: "#ece2d9" }]
-        },
-        {
-          featureType: "poi.park",
-          elementType: "geometry.fill",
-          stylers: [{ color: "#ccdca1" }]
-        },
-        {
-          featureType: "road",
-          elementType: "labels.text.fill",
-          stylers: [{ color: "#767676" }]
-        },
-        {
-          featureType: "road",
-          elementType: "labels.text.stroke",
-          stylers: [{ color: "#ffffff" }]
-        },
-        { featureType: "poi", stylers: [{ visibility: "off" }] },
-        {
-          featureType: "landscape.natural",
-          elementType: "geometry.fill",
-          stylers: [{ visibility: "on" }, { color: "#b8cb93" }]
-        },
-        { featureType: "poi.park", stylers: [{ visibility: "on" }] },
-        {
-          featureType: "poi.sports_complex",
-          stylers: [{ visibility: "on" }]
-        },
-        { featureType: "poi.medical", stylers: [{ visibility: "on" }] },
-        {
-          featureType: "poi.business",
-          stylers: [{ visibility: "simplified" }]
-        }
-      ]
-    };
-    var map = new window.google.maps.Map(
-      document.getElementById("map"),
-      mapOptions
-    );
 
-    var marker = new window.google.maps.Marker({
-      position: myLatlng,
-      title: "Hello World!"
-    });
-
-    // To add the marker to the map, call setMap();
-    marker.setMap(map);
+  methods: {
+    addRequest(event) {
+      console.log("aaaa")
+    }
   }
+
 };
 </script>
 <style>
