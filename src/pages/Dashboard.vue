@@ -75,10 +75,39 @@
 <script>
 import { StatsCard, ChartCard } from "@/components/index";
 import Chartist from 'chartist';
+//http请求所需包  需要安装npm install --save axios
+import axios from 'axios';
+
 export default {
   components: {
     StatsCard,
     ChartCard
+  },
+  /**
+   * Http请求，get/post方法
+   */
+  methods:{
+    get:function(){
+      console.log('get请求方法');
+      //发送get请求
+      axios.get('http://127.0.0.1:3000/123')
+        .then(reponse=>{
+          console.log(reponse.data)
+        }).catch(function (error) {
+        console.log(error);
+      });
+    },
+    post:function (){
+      console.log('post请求方法');
+      //发送post请求
+      axios.post(('http://127.0.0.1:3000/123'),{id:12},
+        {'Content-Type':'application/x-www-form-urlencoded'}
+      ).then((response)=>{
+        console.log(response.data);
+      }).catch(function (error) {
+        console.log(error);
+      });
+    }
   },
   /**
    * Chart data used to render stats, charts. Should be replaced with server data
