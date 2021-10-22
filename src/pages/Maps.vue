@@ -1,5 +1,5 @@
 <template>
-  <div style="height: 580px;display: block;"> 
+  <div style="height: 580px;display: block;">
     <div style="width:500px; margin-left:40px; height:auto; float:left; display:block">
       <card class="architecture-graph" title="Architecture Graph" style="width: 100%; height: auto;max-width: 100%; display: block;">
         <div class="computing-img">
@@ -23,38 +23,47 @@
           action="https://vuejs.org/"
           method="post"
           novalidate="true">
-          <fg-input type="text"
-                    label="Model"
-                    placeholder=""
-                    v-model="formData.model"
-                    >
-          </fg-input>            
-
-          <fg-input type="text"
-                    label="Dataset"
-                    placeholder=""
-                    v-model="formData.dataset"
-                    >
-          </fg-input>
-          <fg-input type="text"
-                    label="Epoch"
-                    placeholder=""
-                    v-model="formData.epoch"
-                    >
-          </fg-input>
-          <fg-input type="text"
-                    label="round"
-                    placeholder=""
-                    v-model="formData.round"
-                    >
-          </fg-input>   
-        </form>  
-        <p-button type="info"
-                  round
-                  @click="addRequest()">
-          New Request
-        </p-button>                                 
-      </card>      
+          <div class="row">
+            <fg-input class="col-sm-6 col-12"
+                      type="text"
+                      label="Model"
+                      placeholder=""
+                      v-model="formData.model"
+                      >
+            </fg-input>
+            <fg-input class="col-sm-6 col-12"
+                      type="text"
+                      label="Dataset"
+                      placeholder=""
+                      v-model="formData.dataset"
+                      >
+            </fg-input>
+          </div>
+          <div class="row">
+            <fg-input class="col-sm-6 col-12"
+                      type="text"
+                      label="Epoch"
+                      placeholder=""
+                      v-model="formData.epoch"
+                      >
+            </fg-input>
+            <fg-input class="col-sm-6 col-12"
+                      type="text"
+                      label="round"
+                      placeholder=""
+                      v-model="formData.round"
+                      >
+            </fg-input>
+          </div>
+        </form>
+        <div class="text-center">
+          <p-button type="info"
+                    round
+                    @click="addRequest()">
+            New Request
+          </p-button>
+        </div>
+      </card>
     </div>
   </div>
 </template>

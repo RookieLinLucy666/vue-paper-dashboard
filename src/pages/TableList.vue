@@ -9,58 +9,71 @@
         </card>
       </div>
 
-      <div class="text-center" style="width:100%; height:auto; float:left; display:block">
+      <div style="width:100%; height:auto; float:left; display:block">
         <card class="architecture-graph"  style="width: 100%; height: auto;max-width: 100%; display: block;">
           <form id="app"
             @submit="addRequest"
             action="https://vuejs.org/"
             method="post"
             novalidate="true">
-            <fg-input type="text"
-                      label="Uploader"
-                      placeholder=""
-                      v-model="formData.uploader"
-                      >
-            </fg-input>            
-
-            <fg-input type="text"
-                      label="Name"
-                      placeholder=""
-                      v-model="formData.name"
-                      >
-            </fg-input>
-            <fg-input type="text"
-                      label="Type"
-                      placeholder=""
-                      v-model="formData.type"
-                      >
-            </fg-input>
-            <fg-input type="text"
-                      label="Ip"
-                      placeholder=""
-                      v-model="formData.ip"
-                      >
-            </fg-input>   
-            <fg-input type="text"
-                      label="Route"
-                      placeholder=""
-                      v-model="formData.route"
-                      >
-            </fg-input>   
-            <fg-input type="text"
-                      label="Abstract"
-                      placeholder=""
-                      v-model="formData.abstract"
-                      >
-            </fg-input>                           
-          </form>  
-          <p-button type="info"
-                    round
-                    @click="addRequest()">
-            New Request
-          </p-button>           
+            <div class="row">
+              <fg-input class="col-sm-6 col-12"
+                        type="text"
+                        label="Uploader"
+                        placeholder="Uploader"
+                        v-model="formData.uploader"
+                        >
+              </fg-input>
+              <fg-input class="col-sm-6 col-12"
+                        type="text"
+                        label="Name"
+                        placeholder="Name"
+                        v-model="formData.name"
+                        >
+              </fg-input>
+            </div>
+            <div class="row">
+              <fg-input class="col-sm-6 col-12"
+                        type="text"
+                        label="Type"
+                        placeholder="Type"
+                        v-model="formData.type"
+                        >
+              </fg-input>
+              <fg-input class="col-sm-6 col-12"
+                        type="text"
+                        label="Ip"
+                        placeholder="Ip"
+                        v-model="formData.ip"
+                        >
+              </fg-input>
+            </div>
+            <div class="row">
+              <fg-input class="col-sm-6 col-12"
+                        type="text"
+                        label="Route"
+                        placeholder="Route"
+                        v-model="formData.route"
+                        >
+              </fg-input>
+              <fg-input class="col-sm-6 col-12"
+                        type="text"
+                        label="Abstract"
+                        placeholder="Abstract"
+                        v-model="formData.abstract"
+                        >
+              </fg-input>
+            </div>
+          </form>
+          <div class="text-center">
+            <p-button type="info"
+                      round
+                      @click="addRequest()">
+              New Request
+            </p-button>
+          </div>
         </card>
-      </div>      
+      </div>
 
     </div>
 </template>
@@ -112,7 +125,7 @@ export default {
         ip: "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest",
         route: "xuperchain",
         abstract: "162accb12e079d4b805f65f7a773c5e10cf537fef5ff99fde901ef0b1c963af8",
-      }      
+      }
       // table2: {
       //   title: "Table on Plain Background",
       //   subTitle: "Here is a subtitle for this table",
