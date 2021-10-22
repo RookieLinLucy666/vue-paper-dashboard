@@ -23,47 +23,44 @@
           action="https://vuejs.org/"
           method="post"
           novalidate="true">
-        </form>
-          <div class="col-md-5" >
-            <fg-input type="text"
-                      label="Model"
-                      placeholder=""
-                      v-model="model"
-                      style="width: 100px;">
-            </fg-input>
-            <fg-input type="text"
-                      label="Dataset"
-                      placeholder=""
-                      v-model="dataset"
-                      style="width: 100px;">
-            </fg-input>
-            <fg-input type="text"
-                      label="Epoch"
-                      placeholder=""
-                      v-model="epoch"
-                      style="width: 100px;">
-            </fg-input>
-            <fg-input type="text"
-                      label="round"
-                      placeholder=""
-                      v-model="round"
-                      style="width: 100px;">
-            </fg-input>                                    
-          </div>        
+          <fg-input type="text"
+                    label="Model"
+                    placeholder=""
+                    v-model="formData.model"
+                    >
+          </fg-input>            
 
-        <div class="text-center">
-          <p-button type="info"
-                    round
-                    @click.native.prevent="addRequest">
-            New Request
-          </p-button>
-        </div>          
+          <fg-input type="text"
+                    label="Dataset"
+                    placeholder=""
+                    v-model="formData.dataset"
+                    >
+          </fg-input>
+          <fg-input type="text"
+                    label="Epoch"
+                    placeholder=""
+                    v-model="formData.epoch"
+                    >
+          </fg-input>
+          <fg-input type="text"
+                    label="round"
+                    placeholder=""
+                    v-model="formData.round"
+                    >
+          </fg-input>   
+        </form>  
+        <p-button type="info"
+                  round
+                  @click="addRequest()">
+          New Request
+        </p-button>                                 
       </card>      
     </div>
   </div>
 </template>
 <script>
 import { PaperTable, } from "@/components";
+import axios from 'axios';
 
 export default {
 
@@ -73,16 +70,32 @@ export default {
 
   data() {
     return {
-      model:"cnn",
-      dataset: "mnist",
-      epoch: 1,
-      round: 1,
+      formData: {
+        model:"cnn",
+        dataset: "mnist",
+        epoch: 1,
+        round: 1,
+      }
     }
   },
 
   methods: {
     addRequest(event) {
-      console.log(event)
+      let formData = new FormData();
+      for(var key in this.formData) {
+        formData.add(key, this.formData[key]);
+      }
+      axios({
+        method:"post",
+        url:"xxxxxxx",
+        headers: {
+        "Content-Type": "multipart/form-data"
+        },
+        withCredentials:true,
+        data:formData
+      }).then((res)=>{
+            console.log(res);
+          });
     }
   }
 

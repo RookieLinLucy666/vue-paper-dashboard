@@ -8,30 +8,57 @@
           </div>
         </card>
       </div>
-<!--       <div class="col-12">
-        <card class="card-plain">
-          <div class="table-full-width table-responsive">
-            <paper-table type="hover" :title="table2.title" :sub-title="table2.subTitle" :data="table2.data"
-                         :columns="table2.columns">
-
-            </paper-table>
-          </div>
-        </card>
-      </div> -->
 
       <div class="text-center" style="width:100%; height:auto; float:left; display:block">
         <card class="architecture-graph"  style="width: 100%; height: auto;max-width: 100%; display: block;">
-          <fg-input type="text"
-                    label="Model"
-                    placeholder=""
-                    v-model="model"
-                    style="width: 100px;">
-          </fg-input>          
+          <form id="app"
+            @submit="addRequest"
+            action="https://vuejs.org/"
+            method="post"
+            novalidate="true">
+            <fg-input type="text"
+                      label="Uploader"
+                      placeholder=""
+                      v-model="formData.uploader"
+                      >
+            </fg-input>            
+
+            <fg-input type="text"
+                      label="Name"
+                      placeholder=""
+                      v-model="formData.name"
+                      >
+            </fg-input>
+            <fg-input type="text"
+                      label="Type"
+                      placeholder=""
+                      v-model="formData.type"
+                      >
+            </fg-input>
+            <fg-input type="text"
+                      label="Ip"
+                      placeholder=""
+                      v-model="formData.ip"
+                      >
+            </fg-input>   
+            <fg-input type="text"
+                      label="Route"
+                      placeholder=""
+                      v-model="formData.route"
+                      >
+            </fg-input>   
+            <fg-input type="text"
+                      label="Abstract"
+                      placeholder=""
+                      v-model="formData.abstract"
+                      >
+            </fg-input>                           
+          </form>  
           <p-button type="info"
                     round
-                    @click.native.prevent="addRequest">
+                    @click="addRequest()">
             New Request
-          </p-button>          
+          </p-button>           
         </card>
       </div>      
 
@@ -78,6 +105,14 @@ export default {
         columns: [...tableColumns],
         data: [...tableData]
       },
+      formData: {
+        uploader: "xuperchain",
+        name: "counter",
+        type: "data",
+        ip: "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest",
+        route: "xuperchain",
+        abstract: "162accb12e079d4b805f65f7a773c5e10cf537fef5ff99fde901ef0b1c963af8",
+      }      
       // table2: {
       //   title: "Table on Plain Background",
       //   subTitle: "Here is a subtitle for this table",
