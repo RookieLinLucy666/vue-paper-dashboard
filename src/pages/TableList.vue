@@ -19,12 +19,20 @@
         </card>
       </div> -->
 
-      <div class="text-center">
-        <p-button type="info"
-                  round
-                  @click.native.prevent="addRequest">
-          New Request
-        </p-button>
+      <div class="text-center" style="width:100%; height:auto; float:left; display:block">
+        <card class="architecture-graph"  style="width: 100%; height: auto;max-width: 100%; display: block;">
+          <fg-input type="text"
+                    label="Model"
+                    placeholder=""
+                    v-model="model"
+                    style="width: 100px;">
+          </fg-input>          
+          <p-button type="info"
+                    round
+                    @click.native.prevent="addRequest">
+            New Request
+          </p-button>          
+        </card>
       </div>      
 
     </div>

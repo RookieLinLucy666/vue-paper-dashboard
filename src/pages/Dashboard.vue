@@ -28,7 +28,7 @@
                     :chart-data="usersChart.data"
                     :chart-options="usersChart.options">
           <span slot="footer">
-            <i class="ti-reload"></i> Updated Now
+            <i class="ti-reload"></i> Updated Now  
           </span>
           <div slot="legend">
             <i class="fa fa-circle text-info"></i> Identity Authentication
