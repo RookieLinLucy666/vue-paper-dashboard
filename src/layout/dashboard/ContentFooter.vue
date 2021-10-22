@@ -4,16 +4,16 @@
       <nav>
         <ul>
           <li>
-            <router-link :to="{path:'/admin'}">Dashboard</router-link>
+            <router-link :to="{path:'/admin'}">基于区块链的车辆数据监管和任务协同平台</router-link>
           </li>
         </ul>
       </nav>
       <div class="copyright d-flex flex-wrap">
-        &copy; Coded with
-        <i class="fa fa-heart heart"></i> by
-        <a href="https://github.com/cristijora" target="_blank"> &nbsp; Cristi Jora.</a>&nbsp;
-        Designed by <a href="https://www.creative-tim.com/?ref=pdf-vuejs" target="_blank">&nbsp; Creative Tim.</a>
-      </div>
+        &copy; Coded by
+<!--         <i class="fa fa-heart heart"></i> by
+ -->        <a href="https://github.com/RookieLinLucy666/TheCarProject" target="_blank"> &nbsp; 躺平对不队：林怡静、王苗苗、吴孟晓、柴泽</a>&nbsp;
+<!--         Designed by <a href="https://www.creative-tim.com/?ref=pdf-vuejs" target="_blank">&nbsp; Creative Tim.</a>
+ -->      </div>
     </div>
   </footer>
 </template>

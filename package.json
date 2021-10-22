@@ -13,10 +13,14 @@
     "bootstrap": "^4.0.0",
     "chartist": "^0.11.0",
     "es6-promise": "^4.2.4",
-    "vue": "^2.5.13",
+    "vis": "^4.21.0-EOL",
+    "vis-network": "^9.1.0",
+    "vue": "^2.6.14",
     "vue-clickaway": "^2.1.0",
     "vue-notifyjs": "^0.3.0",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vue-template-compiler": "^2.6.14",
+    "vue-vis-network": "^1.0.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0-beta.9",

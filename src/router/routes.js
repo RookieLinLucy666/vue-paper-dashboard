@@ -19,12 +19,12 @@ const routes = [
     children: [
       {
         path: "dashboard",
-        name: "dashboard",
+        name: "System Overview",
         component: Dashboard
       },
       {
         path: "stats",
-        name: "stats",
+        name: "IDENTITY AUTHENTICATION",
         component: UserProfile
       },
       {
@@ -34,22 +34,22 @@ const routes = [
       },
       {
         path: "icons",
-        name: "icons",
+        name: "Q&A",
         component: Icons
       },
       {
         path: "maps",
-        name: "maps",
+        name: "Compute Collaboration",
         component: Maps
       },
       {
         path: "typography",
-        name: "typography",
+        name: "Network Topology",
         component: Typography
       },
       {
         path: "table-list",
-        name: "table-list",
+        name: "Data Collaboration",
         component: TableList
       }
     ]

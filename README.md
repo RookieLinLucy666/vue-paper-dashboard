@@ -23,11 +23,21 @@ npm install
 ```
 npm run dev
 ```
+如果出现`Cannot find module 'vue-template-compiler/package.json' #2109`，执行下列操作：
+
+> npm install vue-template-compiler
+>
+> npm install --save vue
+
+然后重新运行`nopm run dev`。
+
 ### build for production with minification
+
 ```
 npm run build
 ```
 ### lint
+
 ```
 npm run lint
 ```

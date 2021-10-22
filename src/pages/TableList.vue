@@ -4,13 +4,14 @@
         <card :title="table1.title" :subTitle="table1.subTitle">
           <div slot="raw-content" class="table-responsive">
             <paper-table :data="table1.data" :columns="table1.columns">
-
             </paper-table>
           </div>
         </card>
       </div>
 
-      <div class="col-12">
+      <PButton></PButton>
+
+<!--       <div class="col-12">
         <card class="card-plain">
           <div class="table-full-width table-responsive">
             <paper-table type="hover" :title="table2.title" :sub-title="table2.subTitle" :data="table2.data"
@@ -19,54 +20,38 @@
             </paper-table>
           </div>
         </card>
-      </div>
+      </div> -->
 
     </div>
 </template>
 <script>
-import { PaperTable } from "@/components";
-const tableColumns = ["Id", "Name", "Salary", "Country", "City"];
+import { PaperTable, PButton } from "@/components";
+const tableColumns = ["Id", "Address", "API", "Result"];
 const tableData = [
   {
     id: 1,
-    name: "Dakota Rice",
-    salary: "$36.738",
-    country: "Niger",
-    city: "Oud-Turnhout"
+    address: "ezDq8L2yHpqTSmKFs3HCiFmVELN67hFF3",
+    api: "https://pro-api.coinmarketcap.com/v1/listings/latest",
+    result: "$66352"
   },
   {
     id: 2,
-    name: "Minerva Hooper",
-    salary: "$23,789",
-    country: "Curaçao",
-    city: "Sinaai-Waas"
+    address: "jPSFQjS6jwMi8tU8F2EFLAiWXpMGno4FU",
+    api: "$http://mobile.weather.com.cn/data/forecast/101010100.html?_=1381891660081",
+    result: "13℃"
   },
   {
     id: 3,
-    name: "Sage Rodriguez",
-    salary: "$56,142",
-    country: "Netherlands",
-    city: "Baileux"
+    address: "nuSMPvo6UUoTaT8mMQmHbfiRbJNbAymGh",
+    api: "$http://tj.nineton.cn/Heart/index/all",
+    result: "Rainy"
   },
-  {
-    id: 4,
-    name: "Philip Chaney",
-    salary: "$38,735",
-    country: "Korea, South",
-    city: "Overland Park"
-  },
-  {
-    id: 5,
-    name: "Doris Greene",
-    salary: "$63,542",
-    country: "Malawi",
-    city: "Feldkirchen in Kärnten"
-  }
 ];
 
 export default {
   components: {
-    PaperTable
+    PaperTable,
+    PButton,
   },
   data() {
     return {
@@ -76,12 +61,12 @@ export default {
         columns: [...tableColumns],
         data: [...tableData]
       },
-      table2: {
-        title: "Table on Plain Background",
-        subTitle: "Here is a subtitle for this table",
-        columns: [...tableColumns],
-        data: [...tableData]
-      }
+      // table2: {
+      //   title: "Table on Plain Background",
+      //   subTitle: "Here is a subtitle for this table",
+      //   columns: [...tableColumns],
+      //   data: [...tableData]
+      // }
     };
   }
 };

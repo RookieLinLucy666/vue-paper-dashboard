@@ -23,17 +23,17 @@
     <div class="row">
 
       <div class="col-12">
-        <chart-card title="Users behavior"
+        <chart-card title="Data Analysis"
                     sub-title="24 Hours performance"
                     :chart-data="usersChart.data"
                     :chart-options="usersChart.options">
           <span slot="footer">
-            <i class="ti-reload"></i> Updated 3 minutes ago
+            <i class="ti-reload"></i> Updated Now
           </span>
           <div slot="legend">
-            <i class="fa fa-circle text-info"></i> Open
-            <i class="fa fa-circle text-danger"></i> Click
-            <i class="fa fa-circle text-warning"></i> Click Second Time
+            <i class="fa fa-circle text-info"></i> Identity Authentication
+            <i class="fa fa-circle text-danger"></i> Data Collaboration
+            <i class="fa fa-circle text-warning"></i> Computing Collaboration
           </div>
         </chart-card>
       </div>
@@ -89,31 +89,31 @@ export default {
         {
           type: "warning",
           icon: "ti-server",
-          title: "Capacity",
-          value: "105GB",
+          title: "Block Height",
+          value: "44",
           footerText: "Updated now",
           footerIcon: "ti-reload"
         },
         {
           type: "success",
           icon: "ti-wallet",
-          title: "Revenue",
-          value: "$1,345",
-          footerText: "Last day",
-          footerIcon: "ti-calendar"
+          title: "Sequence",
+          value: "1",
+          footerText: "Updated now",
+          footerIcon: "ti-reload"
         },
         {
           type: "danger",
           icon: "ti-pulse",
-          title: "Errors",
+          title: "Transactions",
           value: "23",
-          footerText: "In the last hour",
-          footerIcon: "ti-timer"
+          footerText: "Updated now",
+          footerIcon: "ti-reload"
         },
         {
           type: "info",
-          icon: "ti-twitter-alt",
-          title: "Followers",
+          icon: "ti-user",
+          title: "Users",
           value: "+45",
           footerText: "Updated now",
           footerIcon: "ti-reload"
@@ -122,24 +122,28 @@ export default {
       usersChart: {
         data: {
           labels: [
-            "9:00AM",
+            "0:00AM",
+            "2:00AM",
+            "4:00AM",
+            "6:00AM",
+            "8:00AM",
+            "10:00AM",
             "12:00AM",
-            "3:00PM",
-            "6:00PM",
-            "9:00PM",
-            "12:00PM",
-            "3:00AM",
-            "6:00AM"
+            "14:00PM",
+            "16:00PM",
+            "18:00PM",
+            "20:00PM",
+            "22:00PM",
           ],
           series: [
-            [287, 385, 490, 562, 594, 626, 698, 895, 952],
-            [67, 152, 193, 240, 387, 435, 535, 642, 744],
-            [23, 113, 67, 108, 190, 239, 307, 410, 410]
+            [87, 85, 90, 62, 94, 26, 98, 95, 52, 36, 78, 99],
+            [7, 52, 93, 40, 87, 35, 35, 42, 44, 15, 68, 45],
+            [3, 13, 7, 8, 90, 39, 7, 10, 10, 30, 25, 33]
           ]
         },
         options: {
           low: 0,
-          high: 1000,
+          high: 100,
           showArea: true,
           height: "245px",
           axisX: {
