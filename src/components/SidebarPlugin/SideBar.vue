@@ -43,7 +43,7 @@ export default {
   props: {
     title: {
       type: String,
-      default: "DASHBOARD"
+      default: "TheCarBlockchain"
     },
     backgroundColor: {
       type: String,

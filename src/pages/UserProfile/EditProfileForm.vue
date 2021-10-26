@@ -1,5 +1,5 @@
 <template>
-  <card class="card" title="Performance Analysis">
+<!--  <card class="card" title="Performance Analysis">-->
     <div>
       <div class="col-12">
         <chart-card title="Average Concurrent Query Time"
@@ -18,7 +18,7 @@
         </chart-card>
       </div>
     </div>
-  </card>
+<!--  </card>-->
 </template>
 <script>
 import { StatsCard, ChartCard } from "@/components/index";

@@ -1,7 +1,7 @@
 <template>
-  <card class="card-user">
+<!--  <card class="card-user">-->
     <div>
-      <div class="col-12">
+      <div class="col-12 no-padding">
         <chart-card title="Distributed Ledger Content"
                     sub-title="Field Size"
                     :chart-data="preferencesChart.data"
@@ -18,7 +18,7 @@
         </chart-card>
       </div>
     </div>
-  </card>
+<!--  </card>-->
 </template>
 <script>
 import { StatsCard, ChartCard } from "@/components/index";

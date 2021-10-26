@@ -44,7 +44,7 @@
     }
     p{
       margin: 0px 0px;
-      color: #9A9A9A !important;
+      color: #1E1E1E !important;
       text-transform: uppercase;
       font-weight: 600;
       font-size: 12px;
@@ -517,4 +517,9 @@
 }
 .nav-no-padding{
   padding-top: 0 !important;
+}
+
+.no-padding{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
