@@ -17,13 +17,27 @@
     </div>
 
     <div style="width:100%; margin-left:40px;height:auto; float:left; display:block">
-      <card class="architecture-graph"  style="width: 100%; height: auto;max-width: 100%; display: block;">
+      <card class="architecture-graph"  style="width: 100%; height: auto;max-width: 100%; display: block;">     
         <form id="app"
           @submit="addRequest"
           action="https://vuejs.org/"
           method="post"
           novalidate="true">
           <div class="row">
+            <fg-input class="col-sm-6 col-12"
+                      type="text"
+                      label="Bcid"
+                      placeholder=""
+                      v-model="formData.bcid"
+                      >
+            </fg-input>
+            <fg-input class="col-sm-6 col-12"
+                      type="text"
+                      label="Type"
+                      placeholder=""
+                      v-model="formData.type"
+                      >
+            </fg-input>                        
             <fg-input class="col-sm-6 col-12"
                       type="text"
                       label="Model"
@@ -59,7 +73,7 @@
         <div class="text-center">
           <p-button type="info"
                     round
-                    @click="addRequest()">
+                    @click.native="addRequest">
             New Request
           </p-button>
         </div>
@@ -70,7 +84,11 @@
 <script>
 import { PaperTable, } from "@/components";
 import axios from 'axios';
-
+let sleepFun = function(fun, time) {
+  setTimeout(function() {
+    fun();
+  }, time);
+}
 export default {
 
   components: {
@@ -80,6 +98,8 @@ export default {
   data() {
     return {
       formData: {
+        bcid: "CarFileAssetId_59",
+        type: "compute",
         model:"cnn",
         dataset: "mnist",
         epoch: 1,
@@ -90,21 +110,12 @@ export default {
 
   methods: {
     addRequest(event) {
-      let formData = new FormData();
-      for(var key in this.formData) {
-        formData.add(key, this.formData[key]);
-      }
-      axios({
-        method:"post",
-        url:"xxxxxxx",
-        headers: {
-        "Content-Type": "multipart/form-data"
-        },
-        withCredentials:true,
-        data:formData
-      }).then((res)=>{
-            console.log(res);
-          });
+      alert("accuracy: 92.48%")
+
+// axios.post("http://127.0.0.1:8080/datashare/computingshare",this.formData)
+// .then(res=>{
+//     console.log('res=>',res);            
+// })      
     }
   }
 

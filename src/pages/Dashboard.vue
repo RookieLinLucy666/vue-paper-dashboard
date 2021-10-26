@@ -107,7 +107,7 @@ export default {
     get:function(){
       console.log('get请求方法');
       //发送get请求
-      axios.get('http://127.0.0.1:3000/123')
+      axios.get('http://127.0.0.1:8080/metadata/getall')
         .then(reponse=>{
           console.log(reponse.data)
         }).catch(function (error) {

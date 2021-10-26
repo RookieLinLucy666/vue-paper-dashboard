@@ -12,16 +12,16 @@
       <div style="width:100%; height:auto; float:left; display:block">
         <card class="architecture-graph"  style="width: 100%; height: auto;max-width: 100%; display: block;">
           <form id="app"
-            @submit="addRequest"
+            @submit="addRequest()"
             action="https://vuejs.org/"
             method="post"
             novalidate="true">
             <div class="row">
               <fg-input class="col-sm-6 col-12"
                         type="text"
-                        label="Uploader"
-                        placeholder="Uploader"
-                        v-model="formData.uploader"
+                        label="ID"
+                        placeholder="ID"
+                        v-model="formData.id"
                         >
               </fg-input>
               <fg-input class="col-sm-6 col-12"
@@ -68,7 +68,7 @@
           <div class="text-center">
             <p-button type="info"
                       round
-                      @click="addRequest()">
+                      @click.native="addRequest()">
               New Request
             </p-button>
           </div>
@@ -79,36 +79,77 @@
 </template>
 <script>
 import { PaperTable, } from "@/components";
-const tableColumns = ["Id", "Address", "API", "Result"];
-const tableData = [
-  {
-    id: 1,
-    address: "ezDq8L2yHpqTSmKFs3HCiFmVELN67hFF3",
-    api: "https://pro-api.coinmarketcap.com/v1/listings/latest",
-    result: "$66352"
+import axios from 'axios';
+
+const tableColumns = ["Id","Bcid", "Uploader", "Name", "Type", "Ip", "Route", "Abstract"];
+let tableData = []
+var t;
+axios({
+  method:"get",
+  url:"http://127.0.0.1:8080/metadata/getall",
+  headers: {
+  "Content-Type": "multipart/form-data"
   },
-  {
-    id: 2,
-    address: "jPSFQjS6jwMi8tU8F2EFLAiWXpMGno4FU",
-    api: "$http://mobile.weather.com.cn/data/forecast/101010100.html?_=1381891660081",
-    result: "13℃"
-  },
-  {
-    id: 3,
-    address: "nuSMPvo6UUoTaT8mMQmHbfiRbJNbAymGh",
-    api: "$http://tj.nineton.cn/Heart/index/all",
-    result: "Rainy"
-  },
-];
+  // withCredentials:true,
+  // data:formData
+}).then((res)=>{
+      for (var i=0; i<res.data.length; i++) {
+
+        var temp = {
+          id: res.data[i].Id,
+          bcid: res.data[i].BcId,
+          uploader: res.data[i].Uploader,
+          name: res.data[i].Name,
+          type: res.data[i].Type,
+          ip: res.data[i].Ip,
+          route: res.data[i].Route,
+          abstract: res.data[i].Abstract
+        }   
+        tableData.push(temp)
+  
+      }
+
+      console.log(tableData)
+    }); 
+
+// const tableData = [
+//   {
+//     bcid: 1,
+//     uploader: "xuperchain",
+//     name: "counter",
+//     type: "data",
+//     ip: "127.0.0.1",
+//     route: "xxxx",
+//     abstract: "xxx",
+//   },
+// ];
 
 export default {
   components: {
     PaperTable,
   },
+  componentDidMount: {
+
+  },
   methods: {
     addRequest(event) {
-      console.log("aaa")
-    }
+      // axios({
+      //   method:"get",
+      //   url:"http://127.0.0.1:8080/datashare/query",
+      //   headers: {
+      //   "Content-Type": "multipart/form-data",
+      //   },
+      //   body: {
+      //     id: this.formData.id,
+      //   }
+      // }).then(res => {
+      //   // console.log(res)
+      //   alert("market_cap:1145937516800.5276")
+
+      // })
+      alert("market_cap:1145937516800.5276")
+
+    },
   },
   data() {
     return {
@@ -119,7 +160,7 @@ export default {
         data: [...tableData]
       },
       formData: {
-        uploader: "xuperchain",
+        id: "7",
         name: "counter",
         type: "data",
         ip: "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest",
