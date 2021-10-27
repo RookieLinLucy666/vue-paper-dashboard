@@ -17,7 +17,7 @@
               </span>
             </div>
 
-            <div class="col-3">
+            <div class="col-31">
               <p-button type="success" outline icon>
                 <i class="ti-key"></i>
               </p-button>

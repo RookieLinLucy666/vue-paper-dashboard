@@ -76,14 +76,23 @@
                     @click.native="addRequest">
             New Request
           </p-button>
+           <audio :src="audioRequest" ref="audioRequest"></audio>
+           <audio :src="audioCallback" ref="audioCallback"></audio>
+
         </div>
       </card>
     </div>
+
+
   </div>
+
 </template>
 <script>
 import { PaperTable, } from "@/components";
 import axios from 'axios';
+import audioRequest from "../assets/audio/计算协同请求.mp3";
+import audioCallback from "../assets/audio/返回计算协同请求结果.mp3";
+
 let sleepFun = function(fun, time) {
   setTimeout(function() {
     fun();
@@ -97,6 +106,8 @@ export default {
 
   data() {
     return {
+      audioRequest: audioRequest,
+      audioCallback: audioCallback,
       formData: {
         bcid: "CarFileAssetId_59",
         type: "compute",
@@ -104,19 +115,50 @@ export default {
         dataset: "mnist",
         epoch: 1,
         round: 1,
-      }
+      },
+      identify: {
+        name: "asasdas",
+        abstract: "ashdklasd"
+      },
     }
   },
 
   methods: {
     addRequest(event) {
+    this.$refs.audioRequest.play();
       alert("accuracy: 92.48%")
 
-// axios.post("http://127.0.0.1:8080/datashare/computingshare",this.formData)
-// .then(res=>{
-//     console.log('res=>',res);            
-// })      
-    }
+    axios.post("http://127.0.0.1:8080/datashare/computingshare",this.formData)
+      .then(res=>{
+          console.log('res=>',res);      
+          this.$refs.audioCallback.play();      
+      })  
+},
+
+palyAudio(){
+    this.audio = new Audio("@assets/audio/身份认证请求上链.mp3");
+    this.audio.src = mp3;
+    let playPromise; 
+    playPromise = this.audio.play();
+    if (playPromise) {
+        playPromise.then(() => {
+            // 音频加载成功
+            // 音频的播放需要耗时
+          that.tiemr = setInterval(() => {
+            second--;
+            if (second <= 0) {
+              that.audio.pause()
+              clearInterval(that.tiemr);
+            }
+          }, 1000);
+        }).catch((e) => {
+          // 音频加载失败
+          console.error(e);
+        });
+      }
+  },
+
+
   }
 
 };

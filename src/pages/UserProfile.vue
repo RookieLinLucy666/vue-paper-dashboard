@@ -9,9 +9,14 @@
         </members-card>
       </div>
       <div class="col-xl-8 col-lg-7 col-md-6">
+        <request-card>
+
+        </request-card>        
+
         <edit-profile-form>
 
         </edit-profile-form>
+
       </div>
     </div>
 </template>
@@ -19,11 +24,13 @@
 import EditProfileForm from "./UserProfile/EditProfileForm.vue";
 import UserCard from "./UserProfile/UserCard.vue";
 import MembersCard from "./UserProfile/MembersCard.vue";
+import RequestCard from "./UserProfile/RequestCard.vue"
 export default {
   components: {
     EditProfileForm,
     UserCard,
-    MembersCard
+    MembersCard,
+    RequestCard,
   }
 };
 </script>

@@ -71,6 +71,8 @@
                       @click.native="addRequest()">
               New Request
             </p-button>
+           <audio :src="audioRequest" ref="audioRequest"></audio>
+           <audio :src="audioCallback" ref="audioCallback"></audio>            
           </div>
         </card>
       </div>
@@ -80,6 +82,8 @@
 <script>
 import { PaperTable, } from "@/components";
 import axios from 'axios';
+import audioRequest from "../assets/audio/数据协同请求.mp3";
+import audioCallback from "../assets/audio/返回数据协同请求结果.mp3";
 
 const tableColumns = ["Id","Bcid", "Uploader", "Name", "Type", "Ip", "Route", "Abstract"];
 let tableData = []
@@ -133,26 +137,19 @@ export default {
   },
   methods: {
     addRequest(event) {
-      // axios({
-      //   method:"get",
-      //   url:"http://127.0.0.1:8080/datashare/query",
-      //   headers: {
-      //   "Content-Type": "multipart/form-data",
-      //   },
-      //   body: {
-      //     id: this.formData.id,
-      //   }
-      // }).then(res => {
-      //   // console.log(res)
-      //   alert("market_cap:1145937516800.5276")
+      this.$refs.audioRequest.play();
 
-      // })
-      alert("market_cap:1145937516800.5276")
-
+      axios.post("http://127.0.0.1:8080/datashare/query",this.formData)
+        .then(res=>{
+            console.log('res=>',res);      
+            this.$refs.audioCallback.play();      
+        })  
     },
   },
   data() {
     return {
+      audioRequest: audioRequest,
+      audioCallback: audioCallback,      
       table1: {
         title: "Stripped Table",
         subTitle: "Here is a subtitle for this table",

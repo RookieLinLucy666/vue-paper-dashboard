@@ -7,6 +7,7 @@
         <sidebar-link to="/stats" name="Identity Authentication" icon="ti-user"/>
         <sidebar-link to="/table-list" name="Data Collaboration" icon="ti-view-list-alt"/>
         <sidebar-link to="/maps" name="Compute Collaboration" icon="ti-joomla"/>
+        <sidebar-link to="/performance" name="Performance Analysis" icon="ti-stats-up" />
         <sidebar-link to="/notifications" name="Notifications" icon="ti-bell"/>
         <sidebar-link to="/icons" name="Q&A" icon="ti-help"/>        
       </template>
