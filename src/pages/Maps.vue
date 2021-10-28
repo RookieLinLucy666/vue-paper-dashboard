@@ -89,6 +89,7 @@
 </template>
 <script>
 import { PaperTable, } from "@/components";
+import qs from "querystring";
 import axios from 'axios';
 import audioRequest from "../assets/audio/计算协同请求.mp3";
 import audioCallback from "../assets/audio/返回计算协同请求结果.mp3";
@@ -109,7 +110,7 @@ export default {
       audioRequest: audioRequest,
       audioCallback: audioCallback,
       formData: {
-        bcid: "CarFileAssetId_59",
+        bcid: "AdvFileAssetId_59",
         type: "compute",
         model:"cnn",
         dataset: "mnist",
@@ -126,13 +127,40 @@ export default {
   methods: {
     addRequest(event) {
     this.$refs.audioRequest.play();
-      alert("accuracy: 92.48%")
 
-    axios.post("http://127.0.0.1:8080/datashare/computingshare",this.formData)
-      .then(res=>{
-          console.log('res=>',res);      
-          this.$refs.audioCallback.play();      
-      })  
+
+
+      axios({
+        method:"get",
+        url:"http://127.0.0.1:8080/datashare/computingshare",
+        params: {
+          bcid: this.formData.bcid,
+          type: this.formData.type,
+          model: this.formData.model,
+          dataset: this.formData.dataset,
+          epoch: this.formData.epoch,
+          round: this.formData.round,
+        },
+        headers: {
+        "Content-Type": "multipart/form-data"
+        },
+        // withCredentials:true,
+        // data:formData
+      }).then((res)=>{
+            console.log('res=>',res); 
+            alert(res.data.Msg)     
+            this.$refs.audioCallback.play();    
+      }); 
+
+
+
+
+    // axios.post("http://127.0.0.1:8080/datashare/computingshare",this.formData, 
+    //   {'Content-Type':'application/x-www-form-urlencoded'})
+    //   .then(res=>{
+    //       console.log('res=>',res);      
+    //       this.$refs.audioCallback.play();      
+    //   })  
 },
 
 palyAudio(){

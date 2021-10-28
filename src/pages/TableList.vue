@@ -110,6 +110,7 @@ axios({
           abstract: res.data[i].Abstract
         }   
         tableData.push(temp)
+
   
       }
 
@@ -139,11 +140,30 @@ export default {
     addRequest(event) {
       this.$refs.audioRequest.play();
 
-      axios.post("http://127.0.0.1:8080/datashare/query",this.formData)
-        .then(res=>{
-            console.log('res=>',res);      
-            this.$refs.audioCallback.play();      
-        })  
+      axios({
+        method:"get",
+        url:"http://127.0.0.1:8080/datashare/query",
+        params: {id: this.formData.id},
+        headers: {
+        "Content-Type": "multipart/form-data"
+        },
+        // withCredentials:true,
+        // data:formData
+      }).then((res)=>{
+        var msg = res.data.Msg
+        var msgJson = JSON.parse(msg)
+        var output = "TotalCount: " + msgJson.status.total_count + "\n Timestamp: " + msgJson.status.timestamp
+        alert(output)              
+
+            this.$refs.audioCallback.play();    
+      }); 
+
+
+      // axios.get("http://127.0.0.1:8080/datashare/query",{params: {id: this.formData.id}})
+      //   .then(res=>{
+      //       console.log('res=>',res);      
+      //       this.$refs.audioCallback.play();      
+      //   })  
     },
   },
   data() {

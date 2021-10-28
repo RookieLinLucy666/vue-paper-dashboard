@@ -60,21 +60,48 @@ export default {
   methods: {
     addUser() {
     this.$refs.audioRequest.play();
-    axios.post("http://127.0.0.1:8080/identify/adduser",this.identify)
-      .then(res=>{
-          // alert(res.config.data)   
-          console.log(res)  
-          this.$refs.audioCallback.play();                      
-      }) 
+
+    axios({
+      method:"get",
+      url:"http://127.0.0.1:8080/user/adduser",
+      params: {
+        name: this.identity.name,
+        abstract: this.identity.abstract,
+      },
+      headers: {
+      "Content-Type": "multipart/form-data"
+      },
+      // withCredentials:true,
+      // data:formData
+    }).then((res)=>{
+          console.log('res=>',res); 
+          alert(res.data.ChainStatus)     
+          this.$refs.audioCallback.play();    
+    }); 
+
+
+
     },
     checkUser() {
     this.$refs.audioRequest.play();
-    axios.post("http://127.0.0.1:8080/identify/checkuser",this.identify)
-      .then(res=>{
-          alert(res)   
-          console.log(res) 
-          this.$refs.audioCallback.play();                       
-      })   
+
+    axios({
+      method:"get",
+      url:"http://127.0.0.1:8080/user/verify",
+      params: {
+        name: this.identity.name,
+        abstract: this.identity.abstract,
+      },
+      headers: {
+      "Content-Type": "multipart/form-data"
+      },
+      // withCredentials:true,
+      // data:formData
+    }).then((res)=>{
+          console.log('res=>',res); 
+          alert(res.data)     
+          this.$refs.audioCallback.play();    
+    });   
     }
   },
   /**
