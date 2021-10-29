@@ -17,7 +17,7 @@
     </div>
 
     <div style="width:100%; margin-left:40px;height:auto; float:left; display:block">
-      <card class="architecture-graph"  style="width: 100%; height: auto;max-width: 100%; display: block;">     
+      <card class="architecture-graph"  style="width: 100%; height: auto;max-width: 100%; display: block;">
         <form id="app"
           @submit="addRequest"
           action="https://vuejs.org/"
@@ -37,7 +37,7 @@
                       placeholder=""
                       v-model="formData.type"
                       >
-            </fg-input>                        
+            </fg-input>
             <fg-input class="col-sm-6 col-12"
                       type="text"
                       label="Model"
@@ -87,6 +87,14 @@
   </div>
 
 </template>
+<style type="text/css">
+img{
+  image-rendering: -mOz-crisp-edges;/* Firefox */
+  image-rendering: -o-crisp-edges;/* Opera */
+  image-rendering: -webkit-optimize-contrast;/* webkit (non-standard naming)*/
+  image-rendering: crisp-edges; -ms-interpolation-mode: nearest-neighbon;/*IE (non-standard property)*/
+}
+</style>
 <script>
 import { PaperTable, } from "@/components";
 import qs from "querystring";
@@ -147,26 +155,26 @@ export default {
         // withCredentials:true,
         // data:formData
       }).then((res)=>{
-            console.log('res=>',res); 
-            alert(res.data.Msg)     
-            this.$refs.audioCallback.play();    
-      }); 
+            console.log('res=>',res);
+            alert(res.data.Msg)
+            this.$refs.audioCallback.play();
+      });
 
 
 
 
-    // axios.post("http://127.0.0.1:8080/datashare/computingshare",this.formData, 
+    // axios.post("http://127.0.0.1:8080/datashare/computingshare",this.formData,
     //   {'Content-Type':'application/x-www-form-urlencoded'})
     //   .then(res=>{
-    //       console.log('res=>',res);      
-    //       this.$refs.audioCallback.play();      
-    //   })  
+    //       console.log('res=>',res);
+    //       this.$refs.audioCallback.play();
+    //   })
 },
 
 palyAudio(){
     this.audio = new Audio("@assets/audio/身份认证请求上链.mp3");
     this.audio.src = mp3;
-    let playPromise; 
+    let playPromise;
     playPromise = this.audio.play();
     if (playPromise) {
         playPromise.then(() => {

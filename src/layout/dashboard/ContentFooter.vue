@@ -4,7 +4,7 @@
       <nav>
         <ul>
           <li>
-            <router-link :to="{path:'/admin'}">基于区块链的大规模实时广告归因平台</router-link>
+            <router-link :to="{path:'/admin'}">基于区块链的互信隐私广告归因协同平台</router-link>
           </li>
         </ul>
       </nav>
