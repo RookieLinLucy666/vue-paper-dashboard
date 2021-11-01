@@ -118,7 +118,7 @@ export default {
       audioRequest: audioRequest,
       audioCallback: audioCallback,
       formData: {
-        bcid: "AdvFileAssetId_59",
+        bcid: "AdvFileAssetId_8",
         type: "compute",
         model:"cnn",
         dataset: "mnist",

@@ -3,7 +3,6 @@
     <div class="col-12">
       <card class="architecture"  style="width: 100%; height: auto;max-width: 100%; display: block;">     
         <form id="app"
-          @submit="addRequest"
           action="https://vuejs.org/"
           method="post"
           novalidate="true">

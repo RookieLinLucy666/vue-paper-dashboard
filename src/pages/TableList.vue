@@ -178,11 +178,11 @@ export default {
       },
       formData: {
         id: "7",
-        name: "counter",
+        name: "ccc",
         type: "data",
         ip: "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest",
-        route: "xuperchain",
-        abstract: "162accb12e079d4b805f65f7a773c5e10cf537fef5ff99fde901ef0b1c963af8",
+        route: "/111",
+        abstract: "2asdswere",
       }
       // table2: {
       //   title: "Table on Plain Background",
