@@ -152,7 +152,7 @@ export default {
       }).then((res)=>{
         var msg = res.data.Msg
         var msgJson = JSON.parse(msg)
-        var output = "TotalCount: " + msgJson.status.total_count + "\n Timestamp: " + msgJson.status.timestamp
+        var output = "pm2.5: " + msgJson.result.pm.pm2_5
         alert(output)              
 
             this.$refs.audioCallback.play();    
@@ -180,7 +180,7 @@ export default {
         id: "7",
         name: "ccc",
         type: "data",
-        ip: "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest",
+        ip: "https://api.apishop.net/common/air/getCityPM25Detail?apiKey=SWj6Udr57f&city=北京市",
         route: "/111",
         abstract: "2asdswere",
       }
